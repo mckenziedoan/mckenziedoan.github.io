@@ -1,74 +1,73 @@
-<!DOCTYPE html>
+<!DOCTYPE> 
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Bouncing Box</title>
-    <script src="jquery.min.js"></script>
-    <style>
-      .box {
-        width: 70px;
-        height: 70px;
-        background-color: teal;
-        font-size: 300%;
-        text-align: center;
-        user-select: none;
-        display: block;
-        position: absolute;
-        top: 100px;
-        /* Change me! */
-        left: 0px;
-      }
+   <head> 
+    <meta charset="utf-8" /> 
+    <title>Bouncing Box</title> 
+   <script src="jquery.min.js"></script>
+    <style> 
+    .box {
+       width: 70px; 
+       height: 70px; 
+       background-color: teal;
+       font-size: 300%; 
+       text-align:center;
+       user-select: none; 
+       display: block;
+       position: absolute;
+       top: 100px; 
+       /* Change me! */ 
+       left: 0px; } 
+       
+       .board { 
+        height: 100vh; 
+        } 
+        </style> 
+        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --> 
+         </head>
+          <body class="board">
+          <!-- HTML for the box --> 
+          <div class="box">?</div> 
+          <script> 
+          (function () { 
+          "use strict"; 
+          /* global jQuery *
+         
+          //////////////////////////////////////////////////////////////////
+          /////////////////// SETUP DO NOT DELETE //////////////////////////
+          //////////////////////////////////////////////////////////////////
 
-      .board {
-        height: 100vh;
-      }
-    </style>
-    <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-  </head>
+          var box = jQuery(".box"); // reference to the HTML .box element
+          var board = jQuery(".board"); // reference to the HTML .board element
+          var boardWidth = board.width(); // the maximum X-Coordinate of the screen
 
-  <body class="board">
-    <!-- HTML for the box -->
-    <div class="box">?</div>
-
-    <script>
-      (function () {
-        "use strict";
-        /* global jQuery */
-
-        //////////////////////////////////////////////////////////////////
-        /////////////////// SETUP DO NOT DELETE //////////////////////////
-        //////////////////////////////////////////////////////////////////
-
-        var box = jQuery(".box"); // reference to the HTML .box element
-        var board = jQuery(".board"); // reference to the HTML .board element
-        var boardWidth = board.width(); // the maximum X-Coordinate of the screen
-
-        // update the boardWidth variable when the window is resized
-        jQuery(window).on("resize", function () {
+          // update the boardWidth variable when the window is resized
+          jQuery(window).on("resize", function () {
           boardWidth = board.width();
         });
 
-        // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+          // Every 50 milliseconds, call the update Function (see below)
+          setInterval(update, 50);
 
-        // Every time the box is clicked, call the handleBoxClick Function (see below)
-        box.on("click", handleBoxClick);
+          // Every time the box is clicked, call the handleBoxClick Function (see below)
+              box.on("click", handleBoxClick);
 
-        // moves the Box to a new position on the screen along the X-Axis
+         // moves the Box to a new position on the screen along the X-Axis
         function moveBoxTo(newPositionX) {
-          box.css("left", newPositionX);
+        box.css("left", newPositionX);
         }
 
         // changes the text displayed on the Box
         function changeBoxText(newText) {
-          box.text(newText);
-        }
+        box.text(newText);
+      }
+
 
         //////////////////////////////////////////////////////////////////
         /////////////////// YOUR CODE BELOW HERE /////////////////////////
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
+       
         var positionX = 0;
         var points = 0;
         var speed = 10;
@@ -103,17 +102,18 @@
          */
         function handleBoxClick() {
           // increase points
-          points++;
+            points++;
 
           // update speed using linear formula
-          speed = 3 * points + 10;
+            speed = 3 * points + 10;
 
           // reset position
-          positionX = 0;
+            positionX = 0;
 
           // update text on the box
-          changeBoxText(points);
-        }
+           changeBoxText(points);
+          }
+
       })();
     </script>
   </body>
